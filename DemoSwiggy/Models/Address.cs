@@ -6,8 +6,10 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DemoSwiggy.Models
-{
+{//This is Address Entity
     public class Address
+ 
+    
     {[Key]
         public int AddressId { get; set; }
         public string Address1 { get; set; }
