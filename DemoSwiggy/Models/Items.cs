@@ -10,7 +10,7 @@ namespace DemoSwiggy.Models
     public class Items
     {[Key]
         public int ItemId { get; set; }
-        public int ItemName { get; set; }
+        public string ItemName { get; set; }
         public int Price { get; set; }
         public int quantity { get; set; }
         public int Total { get; set; }

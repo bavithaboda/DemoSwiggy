@@ -16,8 +16,8 @@ namespace DemoSwiggy.Models
         [MaxLength(40)]
         public string City { get; set; }
         [MaxLength(300)]
-        public string Description { get; set; }
-        public int Price { get; set; }
+        public string State { get; set; }
+        public string Country { get; set; }
         [ForeignKey("Customer")]
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }

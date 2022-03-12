@@ -15,10 +15,11 @@ namespace DemoSwiggy.Models
         public string Email { get; set; }
         public string Phone { get; set; }
         public int Active { get; set; }
-        [ForeignKey("SupportEMployee")]
-        public int ManagerId { get; set; }
-        public SupportEmployee SE { get; set; }
-
+        [ForeignKey("SupportEmployee")]
+        [InverseProperty("SupportEmployee")]
+        public int? ManagerId { get; set; }
+        public virtual SupportEmployee Manager { get; set; }
+        public virtual ICollection<SupportEmployee> SupportEmployees { get; set; }
         [ForeignKey("Organization")]
         public int OrgId { get; set; }
         public Organization Organization { get; set; }
