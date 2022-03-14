@@ -69,3 +69,41 @@ body {
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
 }
+
+.CenteredCointainer {
+    position:absolute;
+    transform:translate(-50%,-50%);
+    top:50%;
+    left:50%;
+}
+    .CenteredCointainer form {
+        background: linear-gradient(to left,#A0B5EB,#EDAEF9);
+        padding: 3em;
+        border-radius: 20px;
+    }
+    .CenteredCointainer form a {
+        text-decoration:none;
+        color:white;
+        font-size:15px;
+
+        
+    }
+        .CenteredCointainer form a:hover {
+            text-shadow:2px 2px 6px #000040;
+        }
+        .CenteredCointainer form input {
+            border-radius:5px;
+        }
+        .CenteredCointainer form .btn {
+            width:150px;
+            font-size:1em;
+        }
+
+        .CenteredCointainer form:hover {
+            margin:auto;
+        }
+        .centeredContainer a, input:focus, submit:focus, button:focus{
+            outline:none;
+            margin:2px;
+        }
+
