@@ -85,5 +85,22 @@ namespace DemoSwiggy.Repositories
             }
             return sortlist;
         }
+
+        public bool IsCustomerNameExists(string name)
+        {
+            int ct = _context.customers.Where(n => n.Name.ToLower() == name.ToLower()).Count();
+            if (ct > 0)
+                return true;
+            else
+                return false;
+        }
+        public bool IsCustomerNameExists(string name,int id)
+        {
+            int ct = _context.customers.Where(n => n.Name.ToLower() == name.ToLower() && n.CustomerId!=id).Count();
+            if (ct > 0)
+                return true;
+            else
+                return false;
+        }
     }
 }

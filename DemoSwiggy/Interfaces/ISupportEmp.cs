@@ -14,5 +14,7 @@ namespace DemoSwiggy.Interfaces
         Customer Edit(Customer customers);
         Customer Delete(Customer customers);
         Customer Details(Customer customers);
+        public bool IsCustomerNameExists(string name);
+        public bool IsCustomerNameExists(string name, int id);
     }
 }

@@ -2,6 +2,12 @@
 
 @{
     ViewData["Title"] = "Edit";
+    int pg = 1;
+    if (TempData["CurrentPage"] != null)
+    {
+        pg = (int)TempData["CurrentPage"];
+        TempData["CurrentPage"] = pg;
+    }
 }
 
 <h1>Edit</h1>
@@ -44,3 +50,7 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts{ 
+    @{await Html.RenderPartialAsync("_ValidationScriptPartial");}
+
+}
