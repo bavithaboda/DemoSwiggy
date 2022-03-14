@@ -1,7 +1,75 @@
-﻿
+﻿@model IEnumerable<DemoSwiggy.Models.Customer>
+@using DemoSwiggy.Tools;
 @{
     ViewData["Title"] = "Index";
+    SortModel sortModel = (SortModel)ViewData["sortModel"];
+    PageModel pager = ViewBag.Pager;
 }
+
+<link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet" />
 
 <h1>Index</h1>
 
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="row">
+    <div class="col-12">
+        <partial name="_topBar" model="@pager" />
+    </div>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <i class="@sortModel.GetColumn("name").SortIcon" arial-hidden="true"> </i>
+                <a asp-action="Index" asp-route-sortexpression="@sortModel.GetColumn("name").SortExpression">
+
+                    @Html.DisplayNameFor(model => model.Name)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("city").SortIcon" arial-hidden="true"> </i>
+                <a asp-action="Index" asp-route-sortexpression="@sortModel.GetColumn("city").SortExpression">
+                    @Html.DisplayNameFor(model => model.City)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Organization)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Organization.OrgId)
+                </td>*@
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-12">
+        <partial name="_bottomBar" model="@pager" />
+    </div>
+</div>

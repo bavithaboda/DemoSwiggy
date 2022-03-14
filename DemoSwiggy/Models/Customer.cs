@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace DemoSwiggy.Models
 {
+    public enum SortOrder { Ascending = 0, Descending = 0 }
     public class Customer
     {
         [Key]
@@ -19,6 +20,5 @@ namespace DemoSwiggy.Models
         [ForeignKey("Organization")]
         public int OrgId { get; set; }
         public Organization Organization{ get; set; }
-
     }
 }

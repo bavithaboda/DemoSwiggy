@@ -36,7 +36,7 @@ namespace DemoSwiggy.Data
         }
 
 
-        DbSet<Customer> customers { get; set; }
+        public virtual DbSet<Customer> customers { get; set; }
         DbSet<Order> Orders { get; set; }
         DbSet<Items> items { get; set; }
         DbSet<SupportEmployee> se { get; set; }
